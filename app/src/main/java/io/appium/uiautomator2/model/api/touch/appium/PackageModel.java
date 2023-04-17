@@ -14,29 +14,33 @@
  * limitations under the License.
  */
 
-package io.appium.uiautomator2.model.settings;
+package io.appium.uiautomator2.model.api.touch.appium;
 
-public class ShouldUseCompactResponses extends AbstractSetting<Boolean> {
-    private static final String SETTING_NAME = "shouldUseCompactResponses";
-    private static final boolean DEFAULT_VALUE = true;
-    private Boolean value = DEFAULT_VALUE;
+import javax.annotation.Nullable;
 
-    public ShouldUseCompactResponses() {
-        super(Boolean.class, SETTING_NAME);
+public class PackageModel {
+    private final String packageName;
+    private final String packageActivity;
+    private final String appName;
+
+    public PackageModel(String packageName, String packageActivity, String appName) {
+        this.packageName = packageName;
+        this.packageActivity = packageActivity;
+        this.appName = appName;
     }
 
-    @Override
-    public Boolean getValue() {
-        return value;
+    @Nullable
+    public String getPackageName() {
+        return packageName;
     }
 
-    @Override
-    public Boolean getDefaultValue() {
-        return DEFAULT_VALUE;
+    @Nullable
+    public String getPackageActivity() {
+        return packageActivity;
     }
 
-    @Override
-    protected void apply(Boolean shouldUseCompactResponses) {
-        value = shouldUseCompactResponses;
+    @Nullable
+    public String getAppName() {
+        return appName;
     }
 }
